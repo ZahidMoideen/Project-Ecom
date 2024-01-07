@@ -1,0 +1,64 @@
+{% extends 'user/user_dash.html' %}
+{% load static %}
+{% block body %}
+ 
+ <!-- ======= Breadcrumbs ======= -->
+ <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Portfolio Details</h2>
+        <ol>
+          <li><a href="{% url 'users_home' %}">Home</a></li>
+          <li>Portfolio Details</li>
+        </ol>
+      </div>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+  <!-- ======= Portfolio Details Section ======= -->
+  <section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+
+      <div class="row gy-4">
+
+        <div class="col-lg-8">
+          <div class="portfolio-details-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+
+              <div class="swiper-slide">
+                <img src="{{ val.image.url}}" alt="">
+              </div>
+
+            
+
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="portfolio-info">
+            <form method="post" action="{% url 'product_order' %}">
+            <h3>Product information</h3>
+            <ul>
+              <li><strong>NAME</strong>: {{val.name}}</li>
+              <li><strong>PRICE</strong>: {{val.price}}</li>
+              <li><strong>DESCRIPTION </strong>:{{ val.description}}</li>
+              <li><strong>QUANTITY</strong>: <input type="number" name="quantity" class="form-data" ></li>
+            </ul>
+            <center><input type="submit" value="ADD" class="btn btn-outline-primary"></center>
+        </form>
+          </div>
+          
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Details Section -->
+
+
+
+  {% endblock %}

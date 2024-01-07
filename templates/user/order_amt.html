@@ -1,0 +1,50 @@
+{% extends 'user/user_dash.html' %}
+{% load static %}
+{% block body %}
+ 
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Cartlist Details</h2>
+      <ol>
+        <li><a href="{% url 'users_home' %}">Home</a></li>
+        <li>Cartlist Details</li>
+      </ol>
+    </div>
+
+  </div>
+</section><!-- End Breadcrumbs -->
+
+<!-- ======= Portfolio Details Section ======= -->
+
+  <div class="container">
+  <div class="row">
+    <h3>net amount : {{ amt }}</h3>
+    {% for i in val %}
+
+
+          <div class="form-control">
+              <img src="{{ i.product_id.image.url}}" width="150" height="150" alt=""> 
+                <br>
+                <h7>PRODUCT NAME :  {{ i.product_id.name }}</h7>
+                <br>
+                <h7>QUANTITY :  {{ i.quantity }}</h7>
+                <br>
+                <h7>UNIT PRICE :  ₹{{ i.product_id.price }}</h7>
+                
+                <p></p>
+                
+
+                  <a href="{% url 'removes' id=i.id %}" title="More Details">Remove item</a>
+                </div>
+                <hr/>
+          {% endfor %}
+         
+        </div>
+  </div>
+
+
+  {% endblock %}

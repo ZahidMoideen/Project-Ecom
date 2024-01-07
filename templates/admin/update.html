@@ -1,0 +1,53 @@
+{% extends 'admin/admin_dash.html' %}
+{% load static %}
+{% block body %}
+
+
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2> Update Product Details</h2>
+      <ol>
+        <li><a href="{% url 'admin_pg' %}">Home</a></li>
+        <li><a href="{% url 'admin_manage_product' %}">Manage product</a></li>
+        <li>Update Product Details</li>
+      </ol>
+    </div>
+
+  </div>
+</section><!-- End Breadcrumbs -->
+
+<section id="portfolio-details" class="portfolio-details">
+  <div class="container">
+
+<form id="form1" name="form1" method="post" action="{% url 'update_pdt' %}" enctype="multipart/form-data">
+  <table class="table table-striped">
+
+      <tr>
+        <th >NAME</th>
+        <td><input type="text" name="product_name" value="{{val.name}}"></td>
+      </tr>
+      <tr>
+        <th >IMAGE</th>
+        <td><input type="file" name="image"><img src="{{val.image.url}}" width="100" height="100"></td>
+      </tr>
+      <tr>
+        <th >DESCRIPTION</th>
+        <td><input type="text" name="description" value="{{val.description}}"></td>
+      </tr>
+      <tr>
+        <th >PRICE</th>
+        <td><input type="number" name="price" value="{{val.price}}"></td>
+      </tr>
+      <tr>
+        <td width="200" colspan="2"><div align="center">
+          <input name="UPDATE" type="submit" class="btn btn-outline-primary"  value="UPDATE " />
+        </div></td>
+      </tr>
+  </table>
+</form>
+
+</div>
+</section>
+
+{% endblock %}
